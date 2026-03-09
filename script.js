@@ -32,7 +32,10 @@ const translations = {
       "Resultatet er kun et estimat. Faktisk kaloribehov kan variere fra person til person.",
     disclaimer:
       "Ansvarsfraskrivelse: Resultatene er kun veiledende og ikke medisinsk rådgivning.",
-    privacy: "Personvern"
+    privacy: "Personvern",
+    cookieText:
+      "Denne siden bruker informasjonskapsler for analyse og forbedring av tjenesten.",
+    cookieButton: "OK"
   },
   en: {
     pageTitle: "Calorie Calculator",
@@ -67,7 +70,10 @@ const translations = {
       "The result is only an estimate. Actual calorie needs can vary from person to person.",
     disclaimer:
       "Disclaimer: The results are estimates only and not medical advice.",
-    privacy: "Privacy"
+    privacy: "Privacy",
+    cookieText:
+      "This site uses cookies for analytics and service improvement.",
+    cookieButton: "OK"
   }
 };
 
@@ -94,18 +100,26 @@ function setLanguage(language) {
   document.getElementById("label-weight").textContent = t.weight;
   document.getElementById("label-height").textContent = t.height;
   document.getElementById("label-activity").textContent = t.activity;
-  document.getElementById("option-activity-1").textContent = t.activity1;
-  document.getElementById("option-activity-2").textContent = t.activity2;
-  document.getElementById("option-activity-3").textContent = t.activity3;
-  document.getElementById("option-activity-4").textContent = t.activity4;
   document.getElementById("calculate-btn").textContent = t.calculate;
+
+  const activity1 = document.getElementById("option-activity-1");
+  const activity2 = document.getElementById("option-activity-2");
+  const activity3 = document.getElementById("option-activity-3");
+  const activity4 = document.getElementById("option-activity-4");
+
+  if (activity1) activity1.textContent = t.activity1;
+  if (activity2) activity2.textContent = t.activity2;
+  if (activity3) activity3.textContent = t.activity3;
+  if (activity4) activity4.textContent = t.activity4;
 
   const seoTitle = document.getElementById("seo-title");
   const seoParagraph1 = document.getElementById("seo-paragraph-1");
   const seoParagraph2 = document.getElementById("seo-paragraph-2");
   const seoParagraph3 = document.getElementById("seo-paragraph-3");
   const footerDisclaimer = document.getElementById("footer-disclaimer");
-  const privacyLink = document.querySelector(".footer-links a");
+  const privacyLink = document.getElementById("privacy-link");
+  const cookieText = document.getElementById("cookie-text");
+  const cookieAccept = document.getElementById("cookie-accept");
 
   if (seoTitle) seoTitle.textContent = t.seoTitle;
   if (seoParagraph1) seoParagraph1.textContent = t.seoParagraph1;
@@ -113,6 +127,8 @@ function setLanguage(language) {
   if (seoParagraph3) seoParagraph3.textContent = t.seoParagraph3;
   if (footerDisclaimer) footerDisclaimer.textContent = t.disclaimer;
   if (privacyLink) privacyLink.textContent = t.privacy;
+  if (cookieText) cookieText.textContent = t.cookieText;
+  if (cookieAccept) cookieAccept.textContent = t.cookieButton;
 
   langButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === language);
@@ -194,14 +210,14 @@ langButtons.forEach((button) => {
 });
 
 const cookieBanner = document.getElementById("cookie-banner");
-const cookieAccept = document.getElementById("cookie-accept");
+const cookieAcceptButton = document.getElementById("cookie-accept");
 
 if (cookieBanner && !localStorage.getItem("cookieConsent")) {
   cookieBanner.classList.remove("hidden");
 }
 
-if (cookieAccept) {
-  cookieAccept.addEventListener("click", () => {
+if (cookieAcceptButton) {
+  cookieAcceptButton.addEventListener("click", () => {
     localStorage.setItem("cookieConsent", "true");
     cookieBanner.classList.add("hidden");
   });
