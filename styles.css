@@ -309,7 +309,9 @@ button[type="submit"]:active {
   }
 
   h1 {
-    font-size: 1.6rem;
+
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
+
   }
 
   #subtitle {
