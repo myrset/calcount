@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalorikalkulator</title>
+
+<meta name="description"
+content="Beregn ditt daglige kaloribehov basert på alder, høyde, vekt og aktivitetsnivå.">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<main class="page">
+<div class="content-wrap">
+
+<section class="card">
+
+<div class="top-bar">
+<div>
+<h1 id="title">Kalorikalkulator</h1>
+<p id="subtitle">Beregn ditt daglige kaloribehov</p>
+</div>
+
+<div class="language-switcher">
+<button class="lang-btn active" data-lang="no">NO</button>
+<button class="lang-btn" data-lang="en">EN</button>
+</div>
+</div>
+
+<form id="calorieForm">
+
+<div class="form-group">
+<label for="age" id="label-age">Alder</label>
+<input type="number" id="age" required>
+</div>
+
+<div class="form-group">
+<label for="gender" id="label-gender">Kjønn</label>
+<select id="gender">
+<option value="male" id="option-male">Mann</option>
+<option value="female" id="option-female">Kvinne</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="weight" id="label-weight">Vekt (kg)</label>
+<input type="number" id="weight" required>
+</div>
+
+<div class="form-group">
+<label for="height" id="label-height">Høyde (cm)</label>
+<input type="number" id="height" required>
+</div>
+
+<div class="form-group">
+<label for="activity" id="label-activity">Aktivitetsnivå</label>
+<select id="activity">
+<option value="1.2">Lite aktiv</option>
+<option value="1.375">Litt aktiv</option>
+<option value="1.55">Moderat aktiv</option>
+<option value="1.725">Veldig aktiv</option>
+</select>
+</div>
+
+<button type="submit" id="calculate-btn">Beregn kalorier</button>
+
+</form>
+
+<section id="result" class="result hidden"></section>
+
+</section>
+
+<section class="seo-content">
+
+<h2 id="seo-title">Hvordan fungerer kalorikalkulatoren?</h2>
+
+<p id="seo-paragraph-1">
+Denne kalorikalkulatoren estimerer ditt daglige kaloribehov basert på alder,
+kjønn, høyde, vekt og aktivitetsnivå. Beregningen er basert på
+Mifflin–St Jeor-formelen.
+</p>
+
+<p id="seo-paragraph-2">
+Når hvileforbrenningen er beregnet justeres resultatet etter
+aktivitetsnivå for å estimere ditt daglige energibehov.
+</p>
+
+<p id="seo-paragraph-3">
+Resultatet er kun et estimat. Faktisk kaloribehov kan variere
+fra person til person.
+</p>
+
+</section>
+
+</div>
+</main>
+
+<footer class="site-footer">
+
+<p id="footer-disclaimer">
+Ansvarsfraskrivelse: Resultatene er kun veiledende og ikke medisinsk rådgivning.
+</p>
+
+<p class="footer-links">
+<a href="privacy.html">Personvern</a>
+</p>
+
+</footer>
+
+<div id="cookie-banner" class="cookie-banner hidden">
+
+<p>
+Denne siden bruker informasjonskapsler for analyse og forbedring av tjenesten.
+</p>
+
+<button id="cookie-accept">OK</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
