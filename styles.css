@@ -51,21 +51,28 @@ body {
   margin-bottom: 20px;
 }
 
+.header-content {
+  flex: 1;
+  min-width: 0;
+}
+
 h1 {
   margin: 0 0 8px;
-  font-size: 1.9rem;
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
   line-height: 1.1;
+  word-break: break-word;
 }
 
 #subtitle {
   margin: 0;
   color: var(--muted);
   font-size: 1rem;
+  line-height: 1.4;
 }
 
 .language-switcher {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
 }
 
@@ -74,12 +81,13 @@ h1 {
   background: white;
   color: var(--text);
   border-radius: 999px;
-  padding: 4px 8px;
+  padding: 5px 9px;
   cursor: pointer;
   font-weight: 700;
-  min-width: 36px;
+  min-width: 38px;
   font-size: 0.8rem;
   line-height: 1;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .lang-btn:hover {
@@ -291,27 +299,19 @@ button[type="submit"]:active {
     border-radius: 14px;
   }
 
-  @media (max-width: 600px) {
-
   .top-bar {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    align-items: stretch;
+    gap: 10px;
   }
 
   .language-switcher {
-    align-self: flex-end;
+    width: auto;
+    align-self: flex-start;
   }
 
-}
   .lang-btn {
-    flex: 1;
-  }
-
-  h1 {
-
-  font-size: clamp(1.5rem, 4vw, 1.9rem);
-
+    flex: 0 0 auto;
   }
 
   #subtitle {
